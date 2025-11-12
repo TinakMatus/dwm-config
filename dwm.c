@@ -233,6 +233,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
+static void shiftview(const Arg *arg);
 
 /* variables */
 static const char broken[] = "broken";
@@ -2071,6 +2072,21 @@ view(const Arg *arg)
 		selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
 	focus(NULL);
 	arrange(selmon);
+}
+
+void
+shiftview(const Arg *arg) {
+        Arg shifted;
+
+        if(arg->i > 0) // left circular shift
+                shifted.ui = (selmon->tagset[selmon->seltags] << arg->i)
+                   | (selmon->tagset[selmon->seltags] >> (LENGTH(tags) - arg->i));
+
+        else // right circular shift
+                shifted.ui = selmon->tagset[selmon->seltags] >> (- arg->i)
+                   | selmon->tagset[selmon->seltags] << (LENGTH(tags) + arg->i);
+
+        view(&shifted);
 }
 
 Client *
