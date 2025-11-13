@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -12,6 +13,11 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+static const char *upvol[]     = { "sh", "-c", "pamixer -i 5; pkill -RTMIN+10 dwmblocks", NULL };
+static const char *downvol[]   = { "sh", "-c", "pamixer -d 5; pkill -RTMIN+10 dwmblocks", NULL };
+static const char *mutevol[]   = { "sh", "-c", "pamixer -t; pkill -RTMIN+10 dwmblocks", NULL };
+static const char *light_up[]  = { "brightnessctl", "set", "5%+", NULL };
+static const char *light_down[] = { "brightnessctl", "set", "5%-", NULL };
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -88,6 +94,11 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_Right,  shiftview,      {.i = 1 } },
 	{ MODKEY,                       XK_Left,   shiftview,      {.i = -1 } },
+	{ 0, XF86XK_AudioRaiseVolume, spawn,          {.v = upvol } },
+	{ 0, XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
+	{ 0, XF86XK_AudioMute,        spawn,          {.v = mutevol } },
+	{ 0, XF86XK_MonBrightnessUp,  spawn,          {.v = light_up } },
+	{ 0, XF86XK_MonBrightnessDown,spawn,          {.v = light_down } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
