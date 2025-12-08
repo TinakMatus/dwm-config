@@ -8,27 +8,29 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=12" };
 static const char dmenufont[]       = "monospace:size=14";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+char normbgcolor[]           = "#222222";
+char normbordercolor[]       = "#444444";
+char normfgcolor[]           = "#bbbbbb";
+char selfgcolor[]            = "#eeeeee";
+char selbordercolor[]        = "#005577";
+char selbgcolor[]            = "#005577";
+
 static const char *upvol[]     = { "sh", "-c", "pamixer -i 5; pkill -RTMIN+10 dwmblocks", NULL };
 static const char *downvol[]   = { "sh", "-c", "pamixer -d 5; pkill -RTMIN+10 dwmblocks", NULL };
 static const char *mutevol[]   = { "sh", "-c", "pamixer -t; pkill -RTMIN+10 dwmblocks", NULL };
 static const char *light_up[]  = { "brightnessctl", "set", "5%+", NULL };
 static const char *light_down[] = { "brightnessctl", "set", "5%-", NULL };
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+char *colors[][3] = {
+       /* fg           bg           border   */
+       [SchemeNorm]     = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]      = { selfgcolor,  selbgcolor,  selbordercolor  },
+       /* Merged from Colorbar patch using new XRDB variable names */
+       [SchemeStatus]   = { normfgcolor, normbgcolor,  "#000000"  },
+       [SchemeTagsSel]  = { selfgcolor,  selbgcolor,  "#000000"  },
+       [SchemeTagsNorm] = { normfgcolor, normbgcolor,  "#000000"  },
+       [SchemeInfoSel]  = { selfgcolor,  selbgcolor,  "#000000"  },
+       [SchemeInfoNorm] = { normfgcolor, normbgcolor,  "#000000"  },
 };
-
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -71,7 +73,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "/home/bread/.local/suckless/bin/dmenu_run_history", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "/home/bread/.local/suckless/bin/dmenu_run_history", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
@@ -100,6 +102,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_r,     xrdb,           {.v = NULL } },
 	{ MODKEY,                       XK_Left,  shiftview,      {.i = 1 } },
 	{ MODKEY,                       XK_Right,   shiftview,      {.i = -1 } },
 	{ 0, XF86XK_AudioRaiseVolume, spawn,          {.v = upvol } },
