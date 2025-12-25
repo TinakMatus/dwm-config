@@ -840,8 +840,8 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 	ret = x = m->ww - w;
 
 	drw_setscheme(drw, scheme[LENGTH(colors)]);
-	drw->scheme[ColFg] = scheme[SchemeNorm][ColFg];
-	drw->scheme[ColBg] = scheme[SchemeNorm][ColBg];
+	drw->scheme[ColFg] = scheme[SchemeSel][ColFg];
+	drw->scheme[ColBg] = scheme[SchemeSel][ColBg];
 	drw_rect(drw, x, 0, w, bh, 1, 1);
 	x++;
 
@@ -872,8 +872,8 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 					drw_clr_create(drw, &drw->scheme[ColFg], buf, 0xff);
 					i += 7;
 				} else if (text[i] == 'd') {
-					drw->scheme[ColFg] = scheme[SchemeNorm][ColFg];
-					drw->scheme[ColBg] = scheme[SchemeNorm][ColBg];
+					drw->scheme[ColFg] = scheme[SchemeSel][ColFg];
+					drw->scheme[ColBg] = scheme[SchemeSel][ColBg];
 				} else if (text[i] == 'r') {
 					int rx = atoi(text + ++i);
 					while (text[++i] != ',');
@@ -900,7 +900,7 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 		drw_text(drw, x, 0, w, bh, 0, text, 0);
 	}
 
-	drw_setscheme(drw, scheme[SchemeNorm]);
+	drw_setscheme(drw, scheme[SchemeSel]);
 	free(p);
 
 	return ret;
