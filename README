@@ -1,1 +1,10 @@
+some occasional modification here and there;
+* [bartoggle keybinds](https://dwm.suckless.org/patches/bartoggle/)
+* [colorbar](https://dwm.suckless.org/patches/colorbar/)
 
+* [focusmonmouse](https://dwm.suckless.org/patches/focusmonmouse/)
+* [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)
+* [preventfocusshift](https://dwm.suckless.org/patches/preventfocusshift/)
+* [statuscmd](https://dwm.suckless.org/patches/statuscmd/)
+* [vanitygaps](https://dwm.suckless.org/patches/vanitygaps/)
+* [xrdb](https://dwm.suckless.org/patches/xrdb/)
