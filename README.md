@@ -9,11 +9,11 @@ This is my personal build of dwm (dynamic window manager). I built this for myse
 
 I used the Suckless framework and manually added the features (patches) I wanted. It’s a mix of C code and shell scripts that I've tweaked to make everything work together.
 
-* The Code: I took the raw C source code and applied patches for things like transparency, window gaps, and color support.
+* The Code: I took the raw C source code and applied patches for things like transparency window gaps and color support.
 
-* The Logic: I added some small scripts to handle things like connecting to WiFi and other quality-of-life logic. It's just simple stuff to make sure the PC works exactly how I want it to without any extra junk.
+* The Logic: I added some small scripts to handle things like connecting to WiFi and other quality of life logic. It's just simple stuff to make sure the PC works exactly how I want it to without any extra junk.
 
-* The Result: A system that uses almost zero RAM, works perfectly, and looks exactly how I want it to.
+* The Result: A system that uses almost zero RAM works perfectly and looks exactly how I want it to.
 
 
 
