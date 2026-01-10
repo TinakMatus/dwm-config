@@ -30,4 +30,12 @@ I’ve hand-patched this build to include only the essential features for my wor
 *  [**attachbottom**](https://dwm.suckless.org/patches/attachbottom/) - New windows are added to the bottom of the stack instead of the master.
 
 
+## Future Improvements
 
+Even though the system works exactly how I want it to now, I'm always looking for small ways to improve the logic
+
+* Custom Status Blocks: Writing more efficient shell scripts to monitor system temps and battery life.
+
+* Code Cleanup: Periodically refactoring the config.h to keep the keybinds as intuitive as possible.
+
+"If it's slow, it's bloat."
