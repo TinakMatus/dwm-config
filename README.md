@@ -1,27 +1,2 @@
-![](https://github.com/TinakMatus/dwm-config/blob/main/DWM1.jpg?raw=true)
-![](https://raw.githubusercontent.com/TinakMatus/dwm-config/main/DWM1.jpg?raw=true)
-![](https://raw.githubusercontent.com/TinakMatus/dwm-config/main/DWM1.jpg)
-
-
-![](https://raw.githubusercontent.com/TinakMatus/dwm-config/master/DWM1.jpg)
-
-some occasional modification here and there;
-* [bartoggle keybinds](https://dwm.suckless.org/patches/bartoggle/)
-* [colorbar](https://dwm.suckless.org/patches/colorbar/)
-
-* [focusmonmouse](https://dwm.suckless.org/patches/focusmonmouse/)
-* [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)
-* [preventfocusshift](https://dwm.suckless.org/patches/preventfocusshift/)
-* [statuscmd](https://dwm.suckless.org/patches/statuscmd/)
-* [vanitygaps](https://dwm.suckless.org/patches/vanitygaps/)
-* [xrdb](https://dwm.suckless.org/patches/xrdb/)
-
-![](https://raw.githubusercontent.com/TinakMatus/dwm-config/main/DWM1.jpg)
+## dwm - dynamic window manager - My build
 ![](DWM1.jpg)
-![My DWM setup](DWM1.jpg)
-![My DWM setup](https://raw.githubusercontent.com/TinakMatus/dwm-config/main/DWM1.jpg)
-
-![](https://raw.githubusercontent.com/TinakMatus/dwm-config/master/DWM1.jpg)
-![](DWM1.jpg)
-![My DWM setup](DWM1.jpg)
-![My DWM setup](https://raw.githubusercontent.com/TinakMatus/dwm-config/master/DWM1.jpg)
